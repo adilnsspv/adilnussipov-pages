@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: Writing
+---
+<div class="writing-header">
+  <h1>Writing</h1>
+</div>
+<ul class="article-list">
+  {% for post in collections.posts %}
+  <li class="h-entry">
+    <a href="{{ post.url }}" class="u-url p-name">
+      <span class="article-date dt-published">{{ post.date | postDate }}</span>
+      <h3>{{ post.data.title }}</h3>
+      {% if post.data.description %}
+      <h4 class="p-summary">{{ post.data.description }}</h4>
+      {% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ul>

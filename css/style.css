@@ -1,0 +1,420 @@
+/* ============================================
+   Base
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", Georgia, serif;
+  font-size: 1.9em;
+  line-height: 1.65;
+  color: #333;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: #ffff66;
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+}
+
+/* ============================================
+   Header & Nav
+   ============================================ */
+
+header {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 5rem;
+}
+
+.header-inner {
+  display: flex;
+  align-items: baseline;
+  gap: 3rem;
+}
+
+.site-name {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-name:hover {
+  color: #000;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+/* ============================================
+   Links
+   ============================================ */
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #007AFC;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.08em;
+}
+
+a:hover {
+  color: #007AFC;
+}
+
+/* ============================================
+   Homepage
+   ============================================ */
+
+.intro {
+  padding-bottom: 4.5rem;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 4.5rem;
+}
+
+.intro p {
+  font-size: 1.05em;
+  line-height: 1.7;
+  color: #333;
+  margin: 0;
+}
+
+.section-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #999;
+  margin: 0 0 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #efefef;
+}
+
+.all-writing-link {
+  display: inline-block;
+  margin-top: 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ============================================
+   Article List
+   ============================================ */
+
+.article-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.article-list li {
+  margin-bottom: 2.8rem;
+}
+
+.article-list a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.article-list a:hover h3 {
+  color: #007AFC;
+}
+
+.article-date {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.68em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #999;
+  margin-bottom: 0.4em;
+}
+
+.article-list h3 {
+  font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", Georgia, serif;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1.2;
+  color: #333;
+  margin: 0 0 0.25em;
+}
+
+.article-list h4 {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.82em;
+  font-weight: normal;
+  font-style: italic;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ============================================
+   Writing Index Page
+   ============================================ */
+
+.writing-header {
+  margin-bottom: 4rem;
+}
+
+.writing-header h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 2.8rem;
+  font-weight: 500;
+  color: #000;
+  margin: 0;
+}
+
+/* ============================================
+   Article Page
+   ============================================ */
+
+.article-header {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #efefef;
+}
+
+.article-header .article-date {
+  margin-bottom: 0.8em;
+}
+
+.article-content h1 {
+  font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", Georgia, serif;
+  font-size: 3.4rem;
+  font-weight: normal;
+  line-height: 1.15;
+  color: #000;
+  margin: 0 0 0.5em;
+}
+
+.article-subtitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.article-body {
+  margin-bottom: 6rem;
+}
+
+.article-body p {
+  margin-bottom: 1.5em;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+.article-body h2 {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000;
+  margin: 3em 0 1em;
+}
+
+.article-body blockquote {
+  border-left: 2px solid #efefef;
+  margin: 2em 0;
+  padding-left: 2em;
+  color: #555;
+  font-style: italic;
+}
+
+.article-footer {
+  border-top: 1px solid #efefef;
+  padding-top: 2.5rem;
+  margin-top: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ============================================
+   About Page
+   ============================================ */
+
+.about-content h1 {
+  font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", Georgia, serif;
+  font-size: 3.4rem;
+  font-weight: normal;
+  line-height: 1.15;
+  color: #000;
+  margin: 0 0 1em;
+}
+
+.about-content p {
+  margin-bottom: 1.5em;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+footer {
+  border-top: 1px solid #efefef;
+  padding: 3rem 0 4rem;
+  margin-top: 6rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  color: #999;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #999;
+  text-decoration-color: #ccc;
+}
+
+footer a:hover {
+  color: #333;
+}
+
+/* ============================================
+   Dark Mode
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1a1a1a;
+    color: #d0d0d0;
+  }
+
+  header,
+  .intro,
+  .article-header,
+  .article-footer,
+  footer {
+    border-color: #2e2e2e;
+  }
+
+  .section-label {
+    border-color: #2e2e2e;
+    color: #666;
+  }
+
+  .site-name {
+    color: #e0e0e0;
+  }
+
+  nav a {
+    color: #888;
+  }
+
+  nav a:hover {
+    color: #e0e0e0;
+  }
+
+  .article-list h3,
+  .article-content h1,
+  .about-content h1,
+  .writing-header h1 {
+    color: #e0e0e0;
+  }
+
+  .article-list h4,
+  .article-subtitle {
+    color: #888;
+  }
+
+  .article-body h2 {
+    color: #e0e0e0;
+  }
+
+  .article-body blockquote {
+    border-color: #2e2e2e;
+    color: #888;
+  }
+
+  footer p,
+  footer a {
+    color: #555;
+  }
+
+  footer a:hover {
+    color: #999;
+  }
+
+  ::selection {
+    background: #4a4a00;
+    color: #fff;
+  }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .article-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .about-content h1 {
+    font-size: 2.8rem;
+  }
+}

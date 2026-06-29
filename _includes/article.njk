@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+<article class="article-content h-entry">
+  <header class="article-header">
+    <span class="article-date dt-published">{{ page.date | postDate }}</span>
+    <h1 class="p-name">{{ title }}</h1>
+    {% if description %}
+    <p class="article-subtitle p-summary">{{ description }}</p>
+    {% endif %}
+  </header>
+  <div class="article-body e-content">
+    {{ content | safe }}
+  </div>
+  <footer class="article-footer">
+    <a href="/writing/">&larr; All writing</a>
+  </footer>
+</article>
