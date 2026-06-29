@@ -47,10 +47,18 @@ After implementing any changes, ALWAYS stop and ask Adil for permission before r
 ## Design principles (follow craigmod.com closely)
 - Serif body text: "Iowan Old Style" → Georgia fallback
 - Sans-serif for nav, dates, labels — uppercase, letter-spacing
-- Blue link underlines: #007AFC
+- Link accent color: #C0392B (warm red), not blue
 - Content max-width: 680px
 - Dark mode via `prefers-color-scheme`
 - No clutter — whitespace is the design
+
+## Doodle / hand-drawn design layer
+The site has a pen-sketch aesthetic layered over the minimal typography:
+- **Header divider**: wavy SVG line replacing the solid `border-bottom`
+- **Article list hover**: bold red wavy underline draws left-to-right under the title (`background-size` animation on h3), followed by a circled grade letter springing in to the right
+- **Grade system**: add `grade: A` (or B, B+, A- etc.) to a post's front matter to show a circled grade mark on hover. Posts without a grade still get the underline animation
+- **Do NOT add a pen/cursor icon** to the underline animation — was tried and removed, doesn't fit the design
+- All hand-drawn elements use SVG stroke paths (same weight/style), never raster images or emoji
 
 ## Git remote
 `origin` → https://github.com/adilnsspv/adilnussipov-pages.git (this is what Cloudflare watches)
