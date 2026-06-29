@@ -13,10 +13,10 @@ html {
 }
 
 body {
-  font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", Georgia, serif;
-  font-size: 1.9em;
-  line-height: 1.65;
-  color: #333;
+  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", Georgia, serif;
+  font-size: 2.05em;
+  line-height: 1.55;
+  color: #111;
   background: #fff;
   margin: 0;
   padding: 0;
@@ -68,14 +68,14 @@ header::after {
 .site-logo-link {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1rem;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .site-avatar {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: block;
   flex-shrink: 0;
@@ -84,7 +84,7 @@ header::after {
 
 .site-name {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -143,7 +143,6 @@ a:hover {
 .intro p {
   font-size: 1.05em;
   line-height: 1.7;
-  color: #333;
   margin: 0;
 }
 
@@ -206,11 +205,11 @@ a:hover {
 }
 
 .article-list h3 {
-  font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", Georgia, serif;
+  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", Georgia, serif;
   font-size: 1em;
   font-weight: normal;
   line-height: 1.2;
-  color: #333;
+  color: #111;
   margin: 0 0 0.25em;
   width: fit-content;
   position: relative;
@@ -295,7 +294,7 @@ a:hover {
 }
 
 .article-content h1 {
-  font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", Georgia, serif;
+  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", Georgia, serif;
   font-size: 3.4rem;
   font-weight: normal;
   line-height: 1.15;
@@ -357,7 +356,7 @@ a:hover {
    ============================================ */
 
 .about-content h1 {
-  font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", Georgia, serif;
+  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", Georgia, serif;
   font-size: 3.4rem;
   font-weight: normal;
   line-height: 1.15;
