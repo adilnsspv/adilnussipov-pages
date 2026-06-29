@@ -17,6 +17,14 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  eleventyConfig.addFilter("rssDate", function(date) {
+    return new Date(date).toUTCString();
+  });
+
+  eleventyConfig.addFilter("isoDate", function(date) {
+    return new Date(date).toISOString();
+  });
+
   return {
     templateFormats: ["njk", "md", "html"],
     markdownTemplateEngine: "njk",
