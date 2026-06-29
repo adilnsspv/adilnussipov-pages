@@ -212,22 +212,53 @@ a:hover {
   color: #333;
   margin: 0 0 0.25em;
   width: fit-content;
+  position: relative;
+}
+
+.article-list h3::before {
+  content: 'A';
+  position: absolute;
+  right: -3.4rem;
+  top: -0.3rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  text-align: center;
+  line-height: 2.4rem;
+  font-family: "Iowan Old Style", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-style: italic;
+  color: #C0392B;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><path d='M 22 4 C 34 3 40 12 39 22 C 38 33 28 40 18 38 C 8 36 1 27 3 17 C 5 6 14 3 22 4' fill='none' stroke='%23C0392B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(0.4) rotate(-20deg);
+  transition: opacity 0s, transform 0s;
+  pointer-events: none;
 }
 
 .article-list h3::after {
   content: '';
   display: block;
-  height: 3px;
+  height: 8px;
   width: 0;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 5'><path d='M0 2.5 C20 1 40 4 60 2.5 C80 1 100 4 120 2.5 C140 1 160 4 180 2.5 C200 1 220 4 240 2.5 C260 1 280 4 300 2.5' stroke='%23C0392B' stroke-width='1.8' fill='none' stroke-linecap='round'/></svg>");
-  background-size: 300px 3px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23C0392B' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
+  background-size: 300px 8px;
   background-repeat: repeat-x;
-  margin-top: 3px;
+  margin-top: 2px;
   transition: width 0.3s ease;
 }
 
 .article-list a:hover h3::after {
   width: 100%;
+}
+
+.article-list a:hover h3::before {
+  opacity: 1;
+  transform: scale(1) rotate(-8deg);
+  transition: opacity 0.15s ease 0.32s,
+              transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.32s;
 }
 
 .article-list h4 {
@@ -412,7 +443,12 @@ footer a:hover {
   }
 
   .article-list h3::after {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 5'><path d='M0 2.5 C20 1 40 4 60 2.5 C80 1 100 4 120 2.5 C140 1 160 4 180 2.5 C200 1 220 4 240 2.5 C260 1 280 4 300 2.5' stroke='%23E05555' stroke-width='1.8' fill='none' stroke-linecap='round'/></svg>");
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23E05555' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
+  }
+
+  .article-list h3::before {
+    color: #E05555;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><path d='M 22 4 C 34 3 40 12 39 22 C 38 33 28 40 18 38 C 8 36 1 27 3 17 C 5 6 14 3 22 4' fill='none' stroke='%23E05555' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   }
 
   .section-label {
