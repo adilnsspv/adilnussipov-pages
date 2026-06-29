@@ -1,6 +1,10 @@
-jazz albums
+---
+title: Jazz Albums List - Summer 2026
+description: What I'm listening to recently
+date: 2026-06-29
+---
 
-I do can highlight a few that I’m biased towards ;).
+
 
 •	⁠Terumasa Hino – Into Eternity
 •	⁠Terumasa Hino Sextet – Fuji
