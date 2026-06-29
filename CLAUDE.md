@@ -41,6 +41,9 @@ css/style.css              ← all styles
 5. `git push origin main`
 6. Cloudflare auto-deploys in ~1 minute
 
+## IMPORTANT: Deployment rule
+After implementing any changes, ALWAYS stop and ask Adil for permission before running `git push`. Committing locally is fine without asking, but never push to origin without explicit approval — pushing triggers a live Cloudflare deployment.
+
 ## Design principles (follow craigmod.com closely)
 - Serif body text: "Iowan Old Style" → Georgia fallback
 - Sans-serif for nav, dates, labels — uppercase, letter-spacing
