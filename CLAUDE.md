@@ -45,10 +45,15 @@ css/style.css              ← all styles
 After implementing any changes, ALWAYS stop and ask Adil for permission before running `git push`. Committing locally is fine without asking, but never push to origin without explicit approval — pushing triggers a live Cloudflare deployment.
 
 ## Design principles (follow craigmod.com closely)
-- Serif body text: "Iowan Old Style" → Georgia fallback
+- Serif body text: Charter → Iowan Old Style → Georgia fallback (Charter is the primary — it's a macOS system font that matches craigmod.com's density and stroke weight)
+- Body text color: `#111` (near-black, not gray — matches craigmod.com ink density)
+- Body font size: `2.05em` (base `html` is `62.5%`, so `1rem = 10px`)
+- Body line-height: `1.55`
 - Sans-serif for nav, dates, labels — uppercase, letter-spacing
 - Link accent color: #C0392B (warm red), not blue
 - Content max-width: 680px
+- Site name in header: `1.6rem`, bold — visibly larger than nav links (`1.3rem`) for clear identity hierarchy
+- Avatar size: `36×36px`
 - Dark mode via `prefers-color-scheme`
 - No clutter — whitespace is the design
 
