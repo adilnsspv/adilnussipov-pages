@@ -1,6 +1,7 @@
 ---
 title: "Hedgehogs and Foxes"
 date: 2021-12-11
+grade: A-
 ---
 
 Hedgehogs know one big thing. Foxes know many little things. Hedgehogs are experts with deep expertise in one specific domain. This narrow and deep expertise supplies them with a rationale for decision-making. Foxes are integrators — they collect nuggets of wisdom from different domains of expertise and base their decision-making on broad integrated reasoning. In other words, while hedgehogs know one big thing about one specific domain, foxes know many little things from many different domains, the sum of which totals into one big _integrated_ thing.

@@ -1,5 +1,6 @@
 ---
 title: "Functional Art"
+grade: A
 description: "As I dive more into data visualization, I started to read more of design and data visualization books. I think I could not have had a better introduction to the field than this."
 date: 2021-03-01
 ---

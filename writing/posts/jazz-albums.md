@@ -2,6 +2,7 @@
 title: Jazz Albums List - Summer 2026
 description: What I'm listening to recently
 date: 2026-06-29
+grade: A
 ---
 
 

@@ -191,6 +191,7 @@ a:hover {
 
 .article-list a:hover h3 {
   color: #C0392B;
+  background-size: 100% 8px;
 }
 
 .article-date {
@@ -213,6 +214,12 @@ a:hover {
   margin: 0 0 0.25em;
   width: fit-content;
   position: relative;
+  padding-bottom: 5px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23C0392B' stroke-width='4' fill='none' stroke-linecap='butt'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 8px;
+  transition: background-size 0.3s ease, color 0.15s ease;
 }
 
 .article-list h3[data-grade]::before {
@@ -238,23 +245,6 @@ a:hover {
   pointer-events: none;
 }
 
-.article-list h3::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  height: 8px;
-  width: 0;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23C0392B' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
-  background-size: 300px 8px;
-  background-repeat: repeat-x;
-  background-position: 0 0;
-  transition: width 0.3s ease;
-}
-
-.article-list a:hover h3::after {
-  width: 100%;
-}
 
 .article-list a:hover h3[data-grade]::before {
   opacity: 1;
@@ -444,8 +434,8 @@ footer a:hover {
     color: #E05555;
   }
 
-  .article-list h3::after {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23E05555' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
+  .article-list h3 {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23E05555' stroke-width='4' fill='none' stroke-linecap='butt'/></svg>");
   }
 
   .article-list h3[data-grade]::before {

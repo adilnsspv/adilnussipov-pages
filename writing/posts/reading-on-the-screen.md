@@ -1,5 +1,6 @@
 ---
 title: "Reading on the screen"
+grade: B
 description: "These are small things that some time ago were considered so minor that we did not pay attention. Getting into books and exploring the journeys they offer balanced these off."
 date: 2021-11-07
 ---

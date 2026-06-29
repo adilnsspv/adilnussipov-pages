@@ -1,5 +1,6 @@
 ---
 title: "Discover Yourself in Writing"
+grade: B+
 description: "Writing, then, by default implies exploration, discovery and learning. You pull out bits of you onto the page, and pull in bits of findings about yourself."
 date: 2021-12-20
 ---
