@@ -256,11 +256,11 @@ a:hover {
 .article-list h3::after {
   content: '';
   position: absolute;
-  bottom: -1px;
-  left: -16px;
-  width: 18px;
-  height: 18px;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'><line x1='2' y1='2' x2='13' y2='13' stroke='%23C0392B' stroke-width='4.5' stroke-linecap='round'/><circle cx='2' cy='2' r='2.5' fill='%23a02020'/><polygon points='12,12 18,15 16,18 10,14' fill='%23222'/></svg>");
+  bottom: -7px;
+  left: -31px;
+  width: 32px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 14'><path d='M3 3 C3 1 19 1 20 4 L20 10 C19 13 3 13 3 11 C1 10 1 4 3 3' fill='%23C0392B' stroke='%23a02020' stroke-width='0.8'/><path d='M6 1.5 L6 12.5' stroke='%23a02020' stroke-width='1.5' stroke-linecap='round'/><path d='M20 4 L31 7 L20 10 Z' fill='%23333'/></svg>");
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0;
@@ -269,7 +269,7 @@ a:hover {
 }
 
 .article-list a:hover h3::after {
-  left: calc(100% - 16px);
+  left: calc(100% - 31px);
   opacity: 1;
   transition: left 0.3s ease, opacity 0s;
 }
@@ -465,7 +465,7 @@ footer a:hover {
   }
 
   .article-list h3::after {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'><line x1='2' y1='2' x2='13' y2='13' stroke='%23E05555' stroke-width='4.5' stroke-linecap='round'/><circle cx='2' cy='2' r='2.5' fill='%23c04040'/><polygon points='12,12 18,15 16,18 10,14' fill='%23aaa'/></svg>");
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 14'><path d='M3 3 C3 1 19 1 20 4 L20 10 C19 13 3 13 3 11 C1 10 1 4 3 3' fill='%23E05555' stroke='%23c04040' stroke-width='0.8'/><path d='M6 1.5 L6 12.5' stroke='%23c04040' stroke-width='1.5' stroke-linecap='round'/><path d='M20 4 L31 7 L20 10 Z' fill='%23aaa'/></svg>");
   }
 
   .section-label {
