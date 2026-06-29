@@ -10,7 +10,7 @@ title: Writing
   <li class="h-entry">
     <a href="{{ post.url }}" class="u-url p-name">
       <span class="article-date dt-published">{{ post.date | postDate }}</span>
-      <h3>{{ post.data.title }}</h3>
+      <h3{% if post.data.grade %} data-grade="{{ post.data.grade }}"{% endif %}>{{ post.data.title }}</h3>
       {% if post.data.description %}
       <h4 class="p-summary">{{ post.data.description }}</h4>
       {% endif %}

@@ -215,8 +215,8 @@ a:hover {
   position: relative;
 }
 
-.article-list h3::before {
-  content: 'A';
+.article-list h3[data-grade]::before {
+  content: attr(data-grade);
   position: absolute;
   right: -3.4rem;
   top: -0.3rem;
@@ -240,13 +240,15 @@ a:hover {
 
 .article-list h3::after {
   content: '';
-  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
   height: 8px;
   width: 0;
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23C0392B' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
   background-size: 300px 8px;
   background-repeat: repeat-x;
-  margin-top: 2px;
+  background-position: 0 0;
   transition: width 0.3s ease;
 }
 
@@ -254,7 +256,7 @@ a:hover {
   width: 100%;
 }
 
-.article-list a:hover h3::before {
+.article-list a:hover h3[data-grade]::before {
   opacity: 1;
   transform: scale(1) rotate(-8deg);
   transition: opacity 0.15s ease 0.32s,
@@ -446,7 +448,7 @@ footer a:hover {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23E05555' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
   }
 
-  .article-list h3::before {
+  .article-list h3[data-grade]::before {
     color: #E05555;
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><path d='M 22 4 C 34 3 40 12 39 22 C 38 33 28 40 18 38 C 8 36 1 27 3 17 C 5 6 14 3 22 4' fill='none' stroke='%23E05555' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   }
