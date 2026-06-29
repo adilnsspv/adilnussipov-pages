@@ -48,8 +48,24 @@ header {
 
 .header-inner {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 3rem;
+}
+
+.site-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
 }
 
 .site-name {
@@ -59,11 +75,9 @@ header {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #000;
-  text-decoration: none;
-  flex-shrink: 0;
 }
 
-.site-name:hover {
+.site-logo-link:hover .site-name {
   color: #000;
 }
 
@@ -356,6 +370,10 @@ footer a:hover {
     color: #e0e0e0;
   }
 
+  .site-avatar {
+    filter: invert(1);
+  }
+
   nav a {
     color: #888;
   }
@@ -407,6 +425,7 @@ footer a:hover {
 @media (max-width: 600px) {
   .header-inner {
     flex-direction: column;
+    align-items: flex-start;
     gap: 1.2rem;
   }
 
