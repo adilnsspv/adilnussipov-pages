@@ -211,6 +211,7 @@ a:hover {
   line-height: 1.2;
   color: #333;
   margin: 0 0 0.25em;
+  width: fit-content;
 }
 
 .article-list h3::after {
