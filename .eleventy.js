@@ -148,13 +148,15 @@ module.exports = function(eleventyConfig) {
     postsByTitle.clear();
     backlinksCache.clear();
 
-    // Pass 1 — build title → URL index
+    // Pass 1 — build lookup index by title AND file slug so that both
+    // [[Post Title]] and [[file-slug]] forms resolve correctly.
     for (const post of posts) {
+      const entry = { url: post.url, title: post.data.title };
       if (post.data.title) {
-        postsByTitle.set(post.data.title.toLowerCase(), {
-          url: post.url,
-          title: post.data.title,
-        });
+        postsByTitle.set(post.data.title.toLowerCase(), entry);
+      }
+      if (post.fileSlug) {
+        postsByTitle.set(post.fileSlug.toLowerCase(), entry);
       }
     }
 
