@@ -1,0 +1,24 @@
+---
+layout: base.njk
+pagination:
+  data: collections.allTags
+  size: 1
+  alias: tagObj
+permalink: /topics/{{ tagObj.name }}/
+---
+<div class="writing-header">
+  <h1>#{{ tagObj.name }}</h1>
+</div>
+<ul class="article-list">
+  {% for post in tagObj.posts %}
+  <li>
+    <a href="{{ post.url }}">
+      <span class="article-date">{{ post.date | postDate }}</span>
+      <h3{% if post.data.grade %} data-grade="{{ post.data.grade }}"{% endif %}>{{ post.data.title }}</h3>
+      {% if post.data.description %}
+      <h4>{{ post.data.description }}</h4>
+      {% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ul>

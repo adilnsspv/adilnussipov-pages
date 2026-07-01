@@ -12,6 +12,17 @@ layout: base.njk
   <div class="article-body e-content">
     {{ content | safe }}
   </div>
+  {% set backlinks = page.url | getBacklinks %}
+  {% if backlinks.length %}
+  <section class="referenced-by">
+    <p class="section-label">Referenced by</p>
+    <ul>
+      {% for link in backlinks %}
+      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
   <footer class="article-footer">
     <a href="/writing/">&larr; All writing</a>
   </footer>
