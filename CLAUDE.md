@@ -57,6 +57,17 @@ After implementing any changes, ALWAYS stop and ask Adil for permission before r
 - Dark mode via `prefers-color-scheme`
 - No clutter — whitespace is the design
 
+## iA Writer markdown features
+These are implemented via markdown-it plugins in `.eleventy.js`. All use native iA Writer syntax.
+
+- **`==text==`** → `<mark>` (markdown-it-mark)
+- **`[^1]` / `[^1]: text`** → footnotes (markdown-it-footnote). Reference-style only; iA Writer's `[^inline]` variant differs from the plugin's `^[inline]` form and is not supported.
+- **`[[Post Title]]` or `[[file-slug]]`** → intra-site link. Both title and slug forms resolve. Unmatched titles render as plain text with a build warning. At build time a reverse index drives a "Referenced by" section at the bottom of each article (hidden when empty).
+- **Smart typography** — `typographer: true` converts `--`/`---` dashes, `...`, and straight quotes at build time.
+- **`{{TOC}}`** on its own line → auto-generated table of contents. Nunjucks evaluates `{{TOC}}` as a global variable → `%%TOC%%` → markdown-it-toc-done-right replaces it. Heading IDs are added by markdown-it-anchor.
+- **`>> text`** (nested blockquote) → large-type pull quote. CSS `:has(> blockquote)` removes the outer border and the inner `blockquote blockquote` gets 1.28em font-size, non-italic.
+- **`#hashtag`** → link to `/topics/{tag}/`. Only matches `#word` preceded by whitespace (avoids URL fragments). Per-tag pages are generated via `topics/tag.njk` pagination over the `allTags` collection. Tags with only 1 character or starting with a digit are technically supported but discouraged.
+
 ## Doodle / hand-drawn design layer
 The site has a pen-sketch aesthetic layered over the minimal typography:
 - **Header divider**: wavy SVG line replacing the solid `border-bottom`
