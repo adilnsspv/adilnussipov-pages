@@ -1,0 +1,21 @@
+---
+layout: base.njk
+title: Reading
+description: Every book I've read, logged by year — with a short note and how I felt about it.
+---
+<div class="reading-header">
+  <span class="reading-eyebrow">Reading</span>
+  <h1>Reading Log</h1>
+  <p class="reading-intro">Every book I read, kept by year since 2022 — each with a short note and how I felt about it.</p>
+</div>
+
+<ul class="year-list">
+  {% for y in reading %}
+  <li class="year-entry">
+    <a href="/reading/{{ y.year }}/">
+      <span class="year-num">{{ y.year }}</span>
+      <span class="year-count">{{ y.books | length }} book{% if y.books | length != 1 %}s{% endif %}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

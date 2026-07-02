@@ -1,0 +1,303 @@
+================================================================================
+PROJECT SUMMARY: adilnussipov.com
+================================================================================
+Last updated: 2026-07-01
+
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Personal writing site for Adil Nussipov. Built with Eleventy (11ty) static site
+generator and deployed via Cloudflare Pages. The design closely follows
+craigmod.com: typography-first, minimal, serif body text, generous whitespace,
+with a subtle hand-drawn/pen-sketch aesthetic layered on top.
+
+Production URL:     https://adilnussipov.com
+GitHub repo:        https://github.com/adilnsspv/adilnussipov-pages
+Cloudflare project: adilnussipov-pages (dash.cloudflare.com)
+Git remote origin:  https://github.com/adilnsspv/adilnussipov-pages.git
+                    (this is what Cloudflare watches for auto-deploys)
+
+
+--------------------------------------------------------------------------------
+TECH STACK
+--------------------------------------------------------------------------------
+Static site generator:  Eleventy (11ty) v3.1.6
+Templating:             Nunjucks (.njk) for layouts and pages
+Content:                Markdown (.md) for articles
+Styling:                Single CSS file (css/style.css) — no framework
+Build output:           _site/ directory
+Node scripts:
+  npm start    → eleventy --serve  (local dev at http://localhost:8080)
+  npm run build → eleventy          (production build)
+Cloudflare build command:   npx @11ty/eleventy
+Cloudflare output directory: _site
+No JavaScript framework. No bundler. No preprocessor. Plain HTML/CSS output.
+
+
+--------------------------------------------------------------------------------
+FILE STRUCTURE
+--------------------------------------------------------------------------------
+/
+├── index.njk                   ← Homepage: bio intro + 5 most recent articles
+├── about/index.njk             ← About page
+├── writing/index.njk           ← Full article list (all posts, reverse-chron)
+├── writing/posts/              ← All articles as .md files
+│   ├── posts.json              ← Default front matter for all posts
+│   │                             (sets layout: article.njk and permalink)
+│   └── *.md                    ← Individual articles (~46 posts total)
+├── _includes/
+│   ├── base.njk                ← Shared layout: <html>, header, nav, footer
+│   └── article.njk             ← Article page layout (wraps post content)
+├── css/style.css               ← ALL styles (single file, ~520 lines)
+├── images/
+│   ├── avatar.png              ← 36×36px circular avatar in header
+│   ├── favicon-32.png          ← Browser tab favicon
+│   └── favicon-180.png         ← Apple touch icon
+├── feed.njk                    ← RSS feed (Atom/RSS XML output)
+├── .eleventy.js                ← Eleventy config (collections, filters, paths)
+├── package.json                ← npm config, single dependency: @11ty/eleventy
+├── CLAUDE.md                   ← AI assistant instructions for this project
+└── _site/                      ← Build output (gitignored, Cloudflare deploys this)
+
+
+--------------------------------------------------------------------------------
+ELEVENTY CONFIG (.eleventy.js)
+--------------------------------------------------------------------------------
+Passthrough copies:
+  - css/      → copied as-is to _site/css/
+  - images/   → copied as-is to _site/images/
+
+Collections:
+  - "posts": all .md files in writing/posts/, sorted reverse-chronological
+
+Custom filters:
+  - head(array, n)   → returns first n items (used on homepage for 5 recent)
+  - postDate(date)   → formats as "Month YYYY" (e.g., "October 2022")
+  - rssDate(date)    → UTC string for RSS feed
+  - isoDate(date)    → ISO 8601 string for RSS feed
+
+Template formats: njk, md, html
+Markdown engine: njk (so Nunjucks is processed inside .md files)
+Input dir: . (project root)
+Output dir: _site
+Includes dir: _includes
+
+
+--------------------------------------------------------------------------------
+ARTICLE FRONT MATTER
+--------------------------------------------------------------------------------
+All articles live in writing/posts/*.md.
+
+posts.json sets these defaults for every post:
+  layout: article.njk
+  permalink: /writing/{{ page.fileSlug }}/
+
+Each post's front matter:
+  ---
+  title: "Article Title"
+  description: "One-line summary shown under title on list and article pages."
+  date: YYYY-MM-DD
+  grade: A          ← OPTIONAL: A, B, B+, A-, etc. Triggers circled grade badge.
+  ---
+
+The grade field is optional. If present, a hand-drawn circled grade letter
+(e.g., "A" in a sketchy SVG circle) animates in on hover beside the article
+title in the article list.
+
+
+--------------------------------------------------------------------------------
+PAGES
+--------------------------------------------------------------------------------
+Homepage (index.njk):
+  - Short intro bio paragraph
+  - "Recent Writing" section with the 5 most recent posts
+  - Each post shows: date (small caps), title (serif), description (italic sans)
+  - "All writing →" link at the bottom
+
+Writing index (/writing/, writing/index.njk):
+  - All posts, reverse-chronological
+  - Same list item format as homepage
+
+Article page (_includes/article.njk):
+  - Date in small caps above H1
+  - H1: article title (large serif)
+  - Description as subtitle (italic sans-serif)
+  - Article body (markdown rendered)
+  - Footer: "← All writing" link back to writing index
+
+About page (/about/, about/index.njk):
+  - H1: "About"
+  - Two paragraphs: Adil is a writer and technologist interested in how tools
+    shape thought, craft resisting automation, paying close attention
+  - Contact email: adil@adilnussipov.com
+
+RSS feed (/feed.xml via feed.njk):
+  - Standard Atom/RSS feed with all posts
+
+
+--------------------------------------------------------------------------------
+DESIGN SYSTEM
+--------------------------------------------------------------------------------
+Design reference: craigmod.com (typography-first, minimal, generous whitespace)
+
+TYPOGRAPHY
+  Body font stack:  Charter, "Iowan Old Style", "Bitstream Charter",
+                    "Sitka Text", Georgia, serif
+                    (Charter is primary — macOS system font, matches craigmod
+                    density and stroke weight)
+  Body font size:   2.05em  (html base is 62.5%, so 1rem = 10px)
+  Body line-height: 1.55
+  Body color:       #111 (near-black, not gray — matches craigmod ink density)
+  Background:       #fff
+
+  Sans-serif stack: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                    Helvetica, Arial, sans-serif
+                    (used for nav, dates, labels, headers — uppercase, tracked)
+
+LAYOUT
+  Max content width:  680px (centered, 2.4rem side padding)
+  Container:          .container { max-width: 680px; margin: 0 auto; }
+
+COLORS (light mode)
+  Body text:          #111
+  Link underline:     #C0392B (warm red)
+  Link hover:         #C0392B
+  Nav links:          #666, hover #000
+  Date / label text:  #999
+  Section borders:    #efefef
+  Selection:          yellow (#ffff66)
+
+COLORS (dark mode — prefers-color-scheme: dark)
+  Background:         #1a1a1a
+  Body text:          #d0d0d0
+  Link underline:     #E05555 (brighter red for dark bg)
+  Link hover:         #E05555
+  Article headings:   #e0e0e0
+  Section borders:    #2e2e2e
+  Selection:          #4a4a00 (dark yellow)
+  Avatar:             filter: invert(1)
+
+HEADER
+  Site name (.site-name): 1.6rem, bold, uppercase, letter-spacing 0.08em, #000
+  Nav links:              1.3rem, bold, uppercase, letter-spacing 0.08em, #666
+  Avatar:                 36×36px, circular (border-radius: 50%)
+  Header divider:         Wavy SVG line (not a solid border) — hand-drawn aesthetic
+                          SVG path with stroke #d0d0d0 (dark: #2e2e2e), 1.5px stroke
+
+ARTICLE LIST INTERACTIONS
+  On hover of an article link:
+    1. Title color shifts to #C0392B (red)
+    2. Wavy red SVG underline animates from 0% to 100% width in 0.3s
+       (background-size animation on h3 with SVG data URI as background-image)
+    3. If post has grade front matter: circled grade letter springs in
+       to the right of the title with a bouncy cubic-bezier animation
+       (delay: 0.32s — after the underline finishes drawing)
+
+  Grade badge details:
+    - Rendered via CSS ::before pseudo-element with content: attr(data-grade)
+    - Hand-drawn SVG circle as background-image (stroke #C0392B, 2.5px)
+    - Font: Iowan Old Style, italic, bold, 1.2rem
+    - Starts: opacity 0, scale(0.4) rotate(-20deg)
+    - Ends:   opacity 1, scale(1) rotate(-8deg), cubic-bezier(0.34,1.56,0.64,1)
+
+WHAT NOT TO DO (explicit past decisions):
+  - Do NOT add a pen/cursor icon to the underline animation (tried, removed)
+  - Do NOT use raster images or emoji for hand-drawn elements — SVG only
+  - Do NOT change body text to gray — must stay #111
+
+ARTICLE BODY STYLES
+  H1 (article title):   3.4rem, Charter serif, font-weight normal, color #000
+  H2 (section heads):   1.3em, sans-serif, bold, uppercase, letter-spacing 0.08em
+  Paragraphs:           1.5em margin-bottom, hyphens: auto
+  Blockquote:           2px solid #efefef left border, padding-left 2em,
+                        color #555, italic
+  Article subtitle:     0.9em, sans-serif, italic, color #666
+
+FOOTER
+  1px #efefef border-top, padding 3rem 0 4rem, margin-top 6rem
+  Font: sans-serif, 1.3rem, color #999
+
+RESPONSIVE (max-width: 600px)
+  Header stacks vertically (flex-direction: column)
+  H1 font-size reduces to 2.8rem on mobile
+
+
+--------------------------------------------------------------------------------
+PUBLISHING WORKFLOW
+--------------------------------------------------------------------------------
+1. Create writing/posts/article-slug.md with front matter:
+   ---
+   title: Article Title
+   description: One-line summary shown under the title.
+   date: YYYY-MM-DD
+   grade: A          (optional)
+   ---
+
+2. Write content in Markdown below the front matter
+
+3. git add writing/posts/article-slug.md
+
+4. git commit -m "Add: Article Title"
+
+5. STOP — ask Adil for permission before pushing
+
+6. git push origin main   (only after explicit approval)
+
+7. Cloudflare auto-deploys in ~1 minute
+
+DEPLOYMENT RULE: Committing locally is fine without asking. But NEVER push to
+origin without Adil's explicit approval — pushing triggers a live Cloudflare
+deployment that is immediately public.
+
+
+--------------------------------------------------------------------------------
+CURRENT ARTICLES (~46 posts)
+--------------------------------------------------------------------------------
+Topics covered: running, jazz, coffee, reading, books, moving cities,
+data governance, global governance, politics, creativity, writing, technology,
+personal essays, identity, time, wealth, ego, status anxiety, visualization
+projects (AML, climate finance, digital rights, international organizations),
+Substack-style newsletter issues (Caesura)
+
+Notable posts with grades:
+  - jazz-codes.md     (grade: A)
+  (others may exist — check individual post front matter)
+
+Sample post structure:
+  writing/posts/on-running.md
+  writing/posts/jazz-codes.md
+  writing/posts/habit-of-daily-writing.md
+  writing/posts/status-anxiety.md
+  writing/posts/discovering-yourself-in-writing.md
+  ... (see full list in writing/posts/)
+
+
+--------------------------------------------------------------------------------
+ABOUT ADIL NUSSIPOV
+--------------------------------------------------------------------------------
+Writer and technologist. Interests: how tools shape thought, how craft resists
+automation, paying close attention in an age of distraction. Has built software
+products and thinks about the systems underneath them. Uses this site to work
+things out slowly, in public through long-form essays.
+
+Contact: adil@adilnussipov.com
+
+
+--------------------------------------------------------------------------------
+AI ASSISTANT RULES (for Claude or similar)
+--------------------------------------------------------------------------------
+- Never push to origin without explicit approval from Adil
+- Committing locally is fine without asking
+- Design decisions to respect (do not revert):
+    * Charter as primary body font (not Georgia, not a web font)
+    * #111 body text color (not lighter grays)
+    * Wavy SVG header divider (not a solid border)
+    * No pen/cursor icon on underline animation
+    * Grade system with SVG circle badge
+- When adding posts: use the standard front matter above
+- All hand-drawn design elements must be SVG stroke paths, never raster or emoji
+
+================================================================================
+END OF PROJECT SUMMARY
+================================================================================

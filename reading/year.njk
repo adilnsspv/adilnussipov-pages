@@ -1,0 +1,47 @@
+---
+layout: base.njk
+pagination:
+  data: reading
+  size: 1
+  alias: yearData
+permalink: "/reading/{{ yearData.year }}/"
+eleventyComputed:
+  title: "Reading {{ yearData.year }}"
+  description: "Books I read in {{ yearData.year }} — with a short note and how I felt about each."
+---
+<div class="reading-header">
+  <span class="reading-eyebrow"><a href="/reading/">Reading</a></span>
+  <h1 class="year-circle">{{ yearData.year }}</h1>
+  <p class="reading-count">{{ yearData.books | length }} book{% if yearData.books | length != 1 %}s{% endif %}</p>
+</div>
+
+<ul class="book-list">
+  {% for book in yearData.books %}
+  <li class="book">
+    <div class="book-meta">
+      {% if book.finishedLabel %}<p class="book-when">{{ book.finishedLabel }}</p>{% endif %}
+      <h3 class="book-title">{{ book.title }}</h3>
+      <p class="book-author">{{ book.author }}</p>
+      {% if book.rating %}
+      <span class="book-rating book-rating--{{ book.rating }}">{{ book.rating | ratingLabel }}</span>
+      {% endif %}
+      {% if book.note %}<p class="book-note">{{ book.note }}</p>{% endif %}
+    </div>
+    <div class="book-cover">
+      {% set c = book | bookCover %}
+      {% if c %}
+      <img src="{{ c }}" alt="Cover of {{ book.title }}" loading="lazy" onerror="this.closest('.book-cover').classList.add('book-cover--failed')">
+      {% endif %}
+      <span class="book-cover-fallback">{{ book.title }}</span>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+
+{% if reading | length > 1 %}
+<nav class="year-nav">
+  {% for y in reading %}
+  <a href="/reading/{{ y.year }}/"{% if y.year == yearData.year %} class="is-current" aria-current="page"{% endif %}>{{ y.year }}</a>
+  {% endfor %}
+</nav>
+{% endif %}

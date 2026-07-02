@@ -1,0 +1,126 @@
+# Reading log — one block per book.
+#
+# To add a book, copy an existing block and edit it. Keep the leading "- " and
+# the two-space indentation on the lines under it. Order doesn't matter; books
+# are grouped by year automatically (newest year first), and within a year the
+# most recently finished book shows first.
+#
+# Fields:
+#   title    (required) — keep the double quotes; they let titles contain colons
+#   author   (required)
+#   finished (required) — when you finished it. Any of these formats work:
+#                         "March 2022", "Mar 2022", 2022-03, or just 2022.
+#   rating   (optional) — liked, fine, or disliked
+#   note     (optional) — free text after `>-`; write as many lines as you like,
+#                         indented to match. No quotes or commas needed.
+#
+# Covers are found automatically: the build searches Open Library by title +
+# author and caches the result in books/cover-cache.json, so you normally only
+# type title, author and finished. To override a wrong/missing cover, add one of
+# `coverId: 12345`, `isbn: "..."`, or `cover: "https://.../image.jpg"` to a block.
+
+- title: "The Poet Empress"
+  author: Shen Tao
+  finished: June 2026
+  coverId: 
+  rating: liked
+  note: >-
+   I'm not usually into Fantasy books, but this one is different. 
+   Breathtaking read, kept me hookeed for 2 weeks straight and 
+   it is the fastest read of 300 pages for me. 
+   Last fantasy books before this I read were Harry Potter series.
+
+- title: "More Days at the Morisaki Bookshop: A Novel"
+  author: Satoshi Yagisawa
+  finished: May 2026
+  coverId: 14860615
+  rating: liked
+  note: >-
+   Read the first book last year, this one more of the same, and 
+   provides a logical conclusion to some of the plot lines in the previous book.
+   Some of the imaginery created in this book I still bear with me, and they made me feel cozy.
+
+
+- title: "Atomic Habits"
+  author: James Clear
+  finished: January 2022
+  coverId: 12539702
+  rating: liked
+  note: >-
+    My table book — I’ve read it several times and always pull something useful
+    out of it. Listened on Audible through gym season.
+
+- title: "Dilla Time"
+  author: Dan Charnas
+  finished: January 2022
+  coverId: 13214237
+  rating: liked
+  note: >-
+    Made J Dilla human again. Left me thinking about how much we idealize the
+    people whose work we love.
+
+- title: "What I Talk About When I Talk About Running"
+  author: Haruki Murakami
+  finished: January 2022
+  coverId: 13185830
+  rating: liked
+  note: >-
+    Loved it. The parallels between running and writing stayed with me —
+    especially what happens once the goal is gone.
+
+- title: "Make Time"
+  author: Jake Knapp & John Zeratsky
+  finished: April 2022
+  coverId: 14179816
+  rating: fine
+  note: >-
+    Time management for people who live in meetings. Useful, not essential for
+    how I work.
+
+- title: "Jacked: The Outlaw Story of Grand Theft Auto"
+  author: David Kushner
+  finished: May 2022
+  coverId: 10478861
+  rating: fine
+  note: >-
+    The outlaw story of Rockstar Games and Grand Theft Auto.
+
+- title: "The Psychology of Money"
+  author: Morgan Housel
+  finished: August 2022
+  coverId: 10389354
+  rating: liked
+  note: >-
+    Akin to Atomic Habits — simple, repeatable ideas about money and behavior.
+
+- title: "Between Us: How Cultures Create Emotions"
+  author: Batja Mesquita
+  finished: August 2022
+  coverId: 12984702
+  rating: liked
+  note: >-
+    One of the best psychology books I’ve read. There’s no such thing as a
+    private emotion.
+
+- title: "Soft City: Building Density for Everyday Life"
+  author: David Sim
+  finished: September 2022
+  rating: fine
+  note: >-
+    How to build cities that are kinder to the people who live in them. Pretty
+    technical.
+
+- title: "Out of My Skull: The Psychology of Boredom"
+  author: James Danckert & John D. Eastwood
+  finished: October 2022
+  rating: liked
+  note: >-
+    Boredom plays a far bigger role in our lives than I ever gave it credit for.
+
+- title: "The Diary of a Bookseller"
+  author: Shaun Bythell
+  finished: November 2022
+  coverId: 10453111
+  rating: fine
+  note: >-
+    A year behind the counter of a secondhand bookshop in Scotland.

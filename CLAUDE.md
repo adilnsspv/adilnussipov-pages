@@ -22,6 +22,11 @@ writing/posts/*.md         ← articles (add here to publish)
 writing/posts/posts.json   ← default front matter for posts
 _includes/base.njk         ← shared layout (header, nav, footer)
 _includes/article.njk      ← article page layout
+reading/index.njk          ← reading log index (years)
+reading/year.njk           ← paginated per-year book list (/reading/{year}/)
+books/books.yaml           ← reading log data (one block per book)
+books/cover-cache.json     ← auto-generated cover lookups (committed; safe to delete)
+_data/reading.js           ← loads books.yaml, resolves covers, groups by year
 css/style.css              ← all styles
 .eleventy.js               ← Eleventy config
 ```
@@ -40,6 +45,23 @@ css/style.css              ← all styles
 4. `git commit -m "Add: Article Title"`
 5. `git push origin main`
 6. Cloudflare auto-deploys in ~1 minute
+
+## Reading log
+The `/reading/` section is a book log grouped by year. All data lives in one file, `books/books.yaml`, with **one block per book** — deliberately YAML, not JSON, so it's forgiving to hand-edit (no trailing-comma or stray-quote traps that break the whole build).
+
+To add a book, copy an existing block in `books/books.yaml` and edit it — normally just three fields:
+```yaml
+- title: "Book Title"        # keep the double quotes — titles may contain colons
+  author: Author Name
+  finished: March 2022       # required. "March 2022" | "Mar 2022" | 2022-03 | 2022
+  rating: liked              # optional: liked | fine | disliked
+  note: >-                   # optional free text; write multiple indented lines,
+    A short note about the   # no quotes or commas needed
+    book, in your own words.
+```
+`_data/reading.js` reads the file, groups blocks by year (derived from `finished`, newest first; within a year, newest-finished first) and `reading/year.njk` paginates one page per year. A block with no valid `finished` year is skipped with a build warning.
+
+**Covers are auto-resolved.** For any book without an explicit cover, the build searches Open Library by title + author (retrying without the subtitle if the full title misses) and stores the hit in `books/cover-cache.json`. That cache is committed, so only new/unseen books hit the network and cached builds are offline-fast. To override, add `coverId:`, `isbn:`, or a full `cover:` URL to the block — a manual value always wins. To force a re-lookup, delete that book's entry from `cover-cache.json` (or the whole file). Cover URLs are built by the `bookCover` filter (`.eleventy.js`): `cover` → `coverId` → `isbn` → text-only fallback. Requires Node 18+ for global `fetch` (Cloudflare's default is fine).
 
 ## IMPORTANT: Deployment rule
 After implementing any changes, ALWAYS stop and ask Adil for permission before running `git push`. Committing locally is fine without asking, but never push to origin without explicit approval — pushing triggers a live Cloudflare deployment.

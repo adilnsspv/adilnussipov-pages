@@ -131,6 +131,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("images");
 
+  // _data/reading.js reads books/books.yaml directly via fs, so Eleventy can't
+  // see that dependency on its own. Watch the file so edits to the reading log
+  // trigger a rebuild + live-reload during `npm start`. (We watch just the YAML,
+  // not the folder, so the build writing books/cover-cache.json can't re-trigger.)
+  eleventyConfig.addWatchTarget("books/books.yaml");
+
   eleventyConfig.setLibrary("md", md);
 
   // {{TOC}} in a .md file → Nunjucks sees {{ TOC }} → outputs "%%TOC%%" →
@@ -209,6 +215,20 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("head", (array, n) => array.slice(0, n));
+
+  // Resolve a book's cover image URL. Precedence: explicit `cover` URL →
+  // Open Library by cover id → Open Library by ISBN → "" (template shows fallback).
+  eleventyConfig.addFilter("bookCover", (book, size = "L") => {
+    if (!book) return "";
+    if (book.cover) return book.cover;
+    if (book.coverId) return `https://covers.openlibrary.org/b/id/${book.coverId}-${size}.jpg`;
+    if (book.isbn) return `https://covers.openlibrary.org/b/isbn/${book.isbn}-${size}.jpg`;
+    return "";
+  });
+
+  eleventyConfig.addFilter("ratingLabel", rating =>
+    ({ liked: "Liked", fine: "It’s fine", disliked: "Disliked" }[rating] || "")
+  );
 
   eleventyConfig.addFilter("postDate", date =>
     new Date(date).toLocaleDateString("en-US", {

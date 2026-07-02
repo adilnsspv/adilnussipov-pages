@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", Georgia, serif;
+  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", "Source Serif 4", Georgia, serif;
   font-size: 2.05em;
   line-height: 1.55;
   color: #111;
@@ -24,6 +24,10 @@ body {
 
 ::selection {
   background: #ffff66;
+}
+
+::highlight(sel) {
+  background-color: #ffff66;
 }
 
 /* ============================================
@@ -183,7 +187,7 @@ a:hover {
 }
 
 .article-list a {
-  display: block;
+  display: inline-block;
   text-decoration: none;
   color: inherit;
 }
@@ -195,6 +199,7 @@ a:hover {
 
 .article-date {
   display: block;
+  width: fit-content;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.68em;
   font-weight: bold;
@@ -205,7 +210,7 @@ a:hover {
 }
 
 .article-list h3 {
-  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", Georgia, serif;
+  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", "Source Serif 4", Georgia, serif;
   font-size: 1em;
   font-weight: normal;
   line-height: 1.2;
@@ -230,7 +235,7 @@ a:hover {
   height: 2.4rem;
   text-align: center;
   line-height: 2.4rem;
-  font-family: "Iowan Old Style", Georgia, serif;
+  font-family: "Iowan Old Style", "Source Serif 4", Georgia, serif;
   font-size: 1.2rem;
   font-weight: bold;
   font-style: italic;
@@ -254,6 +259,7 @@ a:hover {
 
 
 .article-list h4 {
+  width: fit-content;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.82em;
   font-weight: normal;
@@ -272,6 +278,7 @@ a:hover {
 }
 
 .writing-header h1 {
+  width: fit-content;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 2.8rem;
   font-weight: 500;
@@ -294,7 +301,8 @@ a:hover {
 }
 
 .article-content h1 {
-  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", Georgia, serif;
+  width: fit-content;
+  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", "Source Serif 4", Georgia, serif;
   font-size: 3.4rem;
   font-weight: normal;
   line-height: 1.15;
@@ -303,6 +311,7 @@ a:hover {
 }
 
 .article-subtitle {
+  width: fit-content;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.9em;
   font-style: italic;
@@ -322,7 +331,12 @@ a:hover {
   hyphens: auto;
 }
 
+.article-body li {
+  width: fit-content;
+}
+
 .article-body h2 {
+  width: fit-content;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.3em;
   font-weight: bold;
@@ -330,6 +344,12 @@ a:hover {
   letter-spacing: 0.08em;
   color: #000;
   margin: 3em 0 1em;
+}
+
+.article-body h3,
+.article-body h4,
+.article-body h5 {
+  width: fit-content;
 }
 
 .article-body blockquote {
@@ -356,7 +376,8 @@ a:hover {
    ============================================ */
 
 .about-content h1 {
-  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", Georgia, serif;
+  width: fit-content;
+  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", "Source Serif 4", Georgia, serif;
   font-size: 3.4rem;
   font-weight: normal;
   line-height: 1.15;
@@ -497,6 +518,11 @@ footer a:hover {
 
   ::selection {
     background: #4a4a00;
+    color: #fff;
+  }
+
+  ::highlight(sel) {
+    background-color: #4a4a00;
     color: #fff;
   }
 
@@ -720,5 +746,398 @@ a.tag-link {
 
   .about-content h1 {
     font-size: 2.8rem;
+  }
+}
+
+/* ============================================
+   Reading Log
+   ============================================ */
+
+.reading-header {
+  margin-bottom: 4.5rem;
+}
+
+.reading-eyebrow {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #999;
+  margin-bottom: 0.8rem;
+}
+
+.reading-eyebrow a {
+  color: #999;
+  text-decoration: none;
+}
+
+.reading-eyebrow a:hover {
+  color: #C0392B;
+}
+
+.reading-header h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 3.6rem;
+  font-weight: 500;
+  color: #000;
+  margin: 0;
+  width: fit-content;
+}
+
+.reading-intro {
+  font-size: 0.82em;
+  color: #666;
+  max-width: 34ch;
+  margin: 1.4rem 0 0;
+  line-height: 1.5;
+}
+
+/* Year page: hand-drawn pen ellipse circled around the year number. */
+.year-circle {
+  position: relative;
+  display: inline-block;
+  padding: 0.1em 0.45em 0.14em;
+}
+
+.year-circle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60' preserveAspectRatio='none'><path d='M30 8 C58 3 92 6 110 15 C120 20 118 40 104 48 C82 58 44 57 22 50 C6 45 2 26 12 16 C18 10 26 9 34 7' fill='none' stroke='%23C0392B' stroke-width='2.2' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+.reading-count {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #999;
+  margin: 1rem 0 0;
+}
+
+/* --- Index: year list with cover shelves --- */
+
+.year-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.year-entry + .year-entry {
+  margin-top: 1.2rem;
+}
+
+.year-entry a {
+  display: flex;
+  align-items: baseline;
+  gap: 1.6rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.year-num {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(6rem, 17vw, 10.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #111;
+  /* Signature red wavy underline drawing in on hover (same mark as writing). */
+  padding-bottom: 0.1em;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23C0392B' stroke-width='4' fill='none' stroke-linecap='butt'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 0.13em;
+  transition: background-size 0.4s ease, color 0.18s ease;
+}
+
+.year-entry a:hover .year-num {
+  color: #C0392B;
+  background-size: 100% 0.13em;
+}
+
+.year-count {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: #b0a99a;
+  transition: color 0.18s ease;
+}
+
+.year-entry a:hover .year-count {
+  color: #C0392B;
+}
+
+/* --- Year page: editorial rows --- */
+
+.book-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.book {
+  display: flex;
+  gap: 2.4rem;
+  align-items: flex-start;
+  padding-bottom: 3.6rem;
+  margin-bottom: 3.6rem;
+  /* Hand-drawn pen line between books (same wave as the header divider). */
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 8' preserveAspectRatio='none'><path d='M0 4 C30 2.5 60 5.5 90 4 C120 2.5 150 5.5 180 4 C210 2.5 240 5.5 270 4 C300 2.5 330 5.5 360 4 C390 2.5 420 5.5 450 4 C480 2.5 510 5.5 540 4 C570 3 590 5 600 4' stroke='%23d0d0d0' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% 8px;
+}
+
+.book:last-child {
+  background-image: none;
+}
+
+.book-cover {
+  flex: none;
+  width: 168px;
+  position: relative;
+}
+
+.book-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.14);
+}
+
+/* Fallback: shown only when there is no <img> or the cover fails to load */
+.book-cover-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 168px;
+  aspect-ratio: 2 / 3;
+  padding: 1.2rem;
+  border-radius: 2px;
+  background: #f3f0ea;
+  color: #7a746a;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.book-cover:not(:has(img)) .book-cover-fallback,
+.book-cover--failed .book-cover-fallback {
+  display: flex;
+}
+
+.book-cover--failed img {
+  display: none;
+}
+
+.book-meta {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.2rem;
+}
+
+.book-when {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: #b0a99a;
+  margin: 0 0 0.6rem;
+}
+
+.book-title {
+  font-family: Charter, "Iowan Old Style", "Bitstream Charter", "Sitka Text", "Source Serif 4", Georgia, serif;
+  font-size: 0.98em;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111;
+  margin: 0 0 0.15em;
+  /* Static hand-drawn red underline (same wave as the writing-list hover). */
+  width: fit-content;
+  padding-bottom: 6px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23C0392B' stroke-width='4' fill='none' stroke-linecap='butt'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 7px;
+}
+
+.book-author {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.72em;
+  color: #888;
+  margin: 0;
+}
+
+.book-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin: 1rem 0 0.9rem;
+}
+
+.book-rating::before {
+  content: '';
+  width: 2.2rem;
+  height: 2.2rem;
+  flex: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.book-rating--liked {
+  color: #C0392B;
+}
+
+.book-rating--liked::before {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><path d='M 22 4 C 34 3 40 12 39 22 C 38 33 28 40 18 38 C 8 36 1 27 3 17 C 5 6 14 3 22 4' fill='none' stroke='%23C0392B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+}
+
+.book-rating--fine {
+  color: #9a8f7d;
+}
+
+.book-rating--fine::before {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 20' preserveAspectRatio='none'><path d='M2 12 C7 5 12 5 16 10 C20 15 25 15 30 8 C33 4 36 5 38 8' stroke='%239a8f7d' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
+}
+
+.book-rating--disliked {
+  color: #5f7183;
+}
+
+.book-rating--disliked::before {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><path d='M8 9 C18 19 24 25 32 33' stroke='%235f7183' stroke-width='3' fill='none' stroke-linecap='round'/><path d='M31 9 C22 18 16 24 9 32' stroke='%235f7183' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
+}
+
+.book-note {
+  font-size: 0.82em;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+}
+
+/* --- Year-to-year nav --- */
+
+.year-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  margin-top: 4.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #efefef;
+}
+
+.year-nav a {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #999;
+  text-decoration: none;
+}
+
+.year-nav a:hover {
+  color: #C0392B;
+}
+
+.year-nav a.is-current {
+  color: #111;
+}
+
+@media (max-width: 600px) {
+  .book {
+    gap: 1.6rem;
+  }
+
+  .book-cover,
+  .book-cover-fallback {
+    width: 112px;
+  }
+
+  .reading-header h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .reading-header h1 {
+    color: #e0e0e0;
+  }
+
+  .reading-intro {
+    color: #888;
+  }
+
+  .book {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 8' preserveAspectRatio='none'><path d='M0 4 C30 2.5 60 5.5 90 4 C120 2.5 150 5.5 180 4 C210 2.5 240 5.5 270 4 C300 2.5 330 5.5 360 4 C390 2.5 420 5.5 450 4 C480 2.5 510 5.5 540 4 C570 3 590 5 600 4' stroke='%232e2e2e' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");
+  }
+
+  .book:last-child {
+    background-image: none;
+  }
+
+  .book-title,
+  .year-num {
+    color: #e0e0e0;
+  }
+
+  .book-title {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23E05555' stroke-width='4' fill='none' stroke-linecap='butt'/></svg>");
+  }
+
+  .year-circle::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60' preserveAspectRatio='none'><path d='M30 8 C58 3 92 6 110 15 C120 20 118 40 104 48 C82 58 44 57 22 50 C6 45 2 26 12 16 C18 10 26 9 34 7' fill='none' stroke='%23E05555' stroke-width='2.2' stroke-linecap='round'/></svg>");
+  }
+
+  .book-note {
+    color: #c0c0c0;
+  }
+
+  .year-entry a:hover .year-num,
+  .year-entry a:hover .year-count,
+  .year-nav a:hover,
+  .reading-eyebrow a:hover {
+    color: #E05555;
+  }
+
+  .year-entry a:hover .year-num {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'><path d='M0 5 C15 3 35 7.5 60 4.5 C85 2.5 105 7 130 5 C155 3 175 8 200 5 C225 2.5 250 7.5 280 4.5 C290 3.5 296 5.5 300 5' stroke='%23E05555' stroke-width='4' fill='none' stroke-linecap='butt'/></svg>");
+  }
+
+  .year-nav {
+    border-color: #2e2e2e;
+  }
+
+  .year-nav a.is-current {
+    color: #e0e0e0;
+  }
+
+  .book-cover-fallback {
+    background: #262320;
+    color: #9a9284;
+  }
+
+  .book-rating--liked {
+    color: #E05555;
+  }
+
+  .book-rating--liked::before {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><path d='M 22 4 C 34 3 40 12 39 22 C 38 33 28 40 18 38 C 8 36 1 27 3 17 C 5 6 14 3 22 4' fill='none' stroke='%23E05555' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   }
 }
